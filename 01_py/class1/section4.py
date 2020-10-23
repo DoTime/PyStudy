@@ -57,6 +57,24 @@ print(l)
 for x in range(0, 10):
     print(x)
 
+
+print("---")
+def addTuple( ):
+    t = ()
+    for v in range(0, 10):
+        t += (v,)
+    return t
+print(addTuple())
+
+def addTuple2( ):
+    l = list(range(5))
+    t = ()
+    for v in l:
+        t += (v,)
+    return t
+print(addTuple2())
+
+
 # 单元素tuple
 t = ('Adam',)
 print(t)

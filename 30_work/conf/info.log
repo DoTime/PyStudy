@@ -1,0 +1,115 @@
+2020-06-10 17:16:39,193 flinkx.py[line:26] WARNING - not json file,skip:/var/csg/zrq/flinkx-batch/json/info.log
+2020-06-10 17:16:39,194 flinkx.py[line:50] DEBUG - json file:/var/csg/zrq/flinkx-batch/json/rp_sz.tb_cf_button_09_rz.json
+2020-06-10 17:16:39,194 __init__.py[line:412] INFO - GETFILESTATUS /dataLake/csg/ods/initdata2/09/rz/TB_CF_BUTTON user.name=dev 10.92.172.50:9870
+2020-06-10 17:16:39,201 __init__.py[line:412] INFO - GETFILESTATUS /dataLake/csg/ods/initdata2/09/rz/TB_CF_BUTTON user.name=dev 10.92.172.50:9870
+2020-06-10 17:16:39,207 flinkx.py[line:136] DEBUG - [check hdfs path exist: True]
+2020-06-10 17:16:39,207 flinkx.py[line:139] DEBUG - ##################     mysql  info    ############################
+2020-06-10 17:16:39,207 MysqlUtil.py[line:51] DEBUG - SELECT `table_id`, `company_code`, `domain`, `table_schema`, `table_name`, `rows` FROM  src_table_extra_info  WHERE company_code='09' AND domain ='rz' AND table_schema='rp_sz' AND table_name='tb_cf_button'
+2020-06-10 17:16:39,210 flinkx.py[line:147] DEBUG - mysql record:(299642086943232000, '09', 'rz', 'rp_sz', 'tb_cf_button', 9)
+2020-06-10 17:16:39,210 flinkx.py[line:169] DEBUG - /var/csg/zrq/flinkx-change-1.8.5/initdata.sh yarnPer rp_sz.tb_cf_button_09_rz /var/csg/zrq/flinkx-batch/json/rp_sz.tb_cf_button_09_rz.json 
+2020-06-10 17:16:48,560 flinkx.py[line:176] INFO - flinkx starting ...
+17:16:39.650 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.rpc.address, localhost
+17:16:39.654 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.rpc.port, 6123
+17:16:39.655 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.heap.size, 1024m
+17:16:39.655 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: taskmanager.heap.size, 1024m
+17:16:39.655 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: taskmanager.numberOfTaskSlots, 1
+17:16:39.655 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: parallelism.default, 1
+17:16:39.950 [main] INFO com.dtstack.flinkx.launcher.perjob.PerJobSubmitter - start to submit per-job task, LauncherOptions = com.dtstack.flinkx.options.Options@5acf93bb
+17:16:39.956 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.rpc.address, localhost
+17:16:39.957 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.rpc.port, 6123
+17:16:39.957 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.heap.size, 1024m
+17:16:39.957 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: taskmanager.heap.size, 1024m
+17:16:39.957 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: taskmanager.numberOfTaskSlots, 1
+17:16:39.957 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: parallelism.default, 1
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+17:16:40.332 [main] INFO org.apache.flink.runtime.security.modules.HadoopModule - Hadoop user set to dev (auth:SIMPLE)
+----init yarn success ----
+17:16:40.689 [main] WARN org.apache.flink.yarn.AbstractYarnClusterDescriptor - Neither the HADOOP_CONF_DIR nor the YARN_CONF_DIR environment variable is set. The Flink YARN Client needs one of these to be set to properly load the Hadoop configuration for accessing YARN.
+17:16:40.697 [main] WARN org.apache.flink.yarn.AbstractYarnClusterDescriptor - The specified queue 'default' does not exist. Available queues: root.default, root.users, root.users.jghss, root.users.dev, 
+17:16:40.712 [main] WARN org.apache.flink.yarn.AbstractYarnClusterDescriptor - The JobManager or TaskManager memory is below the smallest possible YARN Container size. The value of 'yarn.scheduler.minimum-allocation-mb' is '1024'. Please increase the memory size.YARN will allocate the smaller containers but the scheduler will account for the minimum-allocation-mb, maybe not all instances you requested will start.
+17:16:40.715 [main] INFO org.apache.flink.yarn.AbstractYarnClusterDescriptor - Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=1024, numberTaskManagers=1, slotsPerTaskManager=1}
+17:16:41.018 [main] WARN org.apache.flink.yarn.AbstractYarnClusterDescriptor - The configuration directory ('/var/csg/zrq/flink-1.8.1/conf') contains both LOG4J and Logback configuration files. Please delete or rename one of them.
+17:16:42.831 [main] INFO org.apache.flink.yarn.AbstractYarnClusterDescriptor - Submitting application master application_1588675694872_41143
+17:16:42.851 [main] INFO org.apache.flink.yarn.AbstractYarnClusterDescriptor - Waiting for the cluster to be allocated
+17:16:42.852 [main] INFO org.apache.flink.yarn.AbstractYarnClusterDescriptor - Deploying cluster, current state ACCEPTED
+17:16:48.122 [main] INFO org.apache.flink.yarn.AbstractYarnClusterDescriptor - YARN application has been deployed successfully.
+17:16:48.456 [main] INFO org.apache.flink.runtime.rest.RestClient - Rest client endpoint started.
+17:16:48.457 [main] INFO com.dtstack.flinkx.launcher.perjob.PerJobSubmitter - deploy per_job with appId: application_1588675694872_41143}, jobId: 42e2f04dd2ead512d04a1d8a01428438
+2020-06-10 17:16:48,561 flinkx.py[line:202] DEBUG - yarn_application_id:application_1588675694872_41143
+2020-06-10 17:16:49,054 flinkx.py[line:207] DEBUG - check yarn state:RUNNING
+2020-06-10 17:17:04,603 flinkx.py[line:207] DEBUG - check yarn state:RUNNING
+2020-06-10 17:17:20,036 flinkx.py[line:207] DEBUG - check yarn state:RUNNING
+2020-06-10 17:17:35,452 flinkx.py[line:207] DEBUG - check yarn state:RUNNING
+2020-06-10 17:17:50,998 flinkx.py[line:207] DEBUG - check yarn state:FINISHED
+2020-06-10 17:17:50,998 flinkx.py[line:214] DEBUG - ##################     impala  info     ############################
+2020-06-10 17:17:50,998 ImpalaUtil.py[line:15] DEBUG - impala-shell -i 10.92.172.36:21000 -B -q 'select count(1) from csg_ods_09_rz.tb_cf_button'
+2020-06-10 17:22:12,165 flinkx.py[line:26] WARNING - not json file,skip:/var/csg/zrq/flinkx-batch/json/info.log
+2020-06-10 17:22:12,167 flinkx.py[line:50] DEBUG - json file:/var/csg/zrq/flinkx-batch/json/rp_sz.tb_cf_button_09_rz.json
+2020-06-10 17:22:12,167 __init__.py[line:412] INFO - GETFILESTATUS /dataLake/csg/ods/initdata2/09/rz/TB_CF_BUTTON user.name=dev 10.92.172.50:9870
+2020-06-10 17:22:12,175 __init__.py[line:412] INFO - GETFILESTATUS /dataLake/csg/ods/initdata2/09/rz/TB_CF_BUTTON user.name=dev 10.92.172.50:9870
+2020-06-10 17:22:12,178 flinkx.py[line:136] DEBUG - [check hdfs path exist: True]
+2020-06-10 17:22:12,179 flinkx.py[line:139] DEBUG - ##################     mysql  info    ############################
+2020-06-10 17:22:12,179 MysqlUtil.py[line:51] DEBUG - SELECT `table_id`, `company_code`, `domain`, `table_schema`, `table_name`, `rows` FROM  src_table_extra_info  WHERE company_code='09' AND domain ='rz' AND table_schema='rp_sz' AND table_name='tb_cf_button'
+2020-06-10 17:22:12,180 flinkx.py[line:147] DEBUG - mysql record:(299642086943232000, '09', 'rz', 'rp_sz', 'tb_cf_button', 9)
+2020-06-10 17:22:12,180 flinkx.py[line:169] DEBUG - /var/csg/zrq/flinkx-change-1.8.5/initdata.sh yarnPer rp_sz.tb_cf_button_09_rz /var/csg/zrq/flinkx-batch/json/rp_sz.tb_cf_button_09_rz.json 
+2020-06-10 17:22:22,274 flinkx.py[line:176] INFO - flinkx starting ...
+17:22:12.709 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.rpc.address, localhost
+17:22:12.713 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.rpc.port, 6123
+17:22:12.713 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.heap.size, 1024m
+17:22:12.714 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: taskmanager.heap.size, 1024m
+17:22:12.714 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: taskmanager.numberOfTaskSlots, 1
+17:22:12.714 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: parallelism.default, 1
+17:22:13.089 [main] INFO com.dtstack.flinkx.launcher.perjob.PerJobSubmitter - start to submit per-job task, LauncherOptions = com.dtstack.flinkx.options.Options@5acf93bb
+17:22:13.096 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.rpc.address, localhost
+17:22:13.096 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.rpc.port, 6123
+17:22:13.096 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: jobmanager.heap.size, 1024m
+17:22:13.096 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: taskmanager.heap.size, 1024m
+17:22:13.097 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: taskmanager.numberOfTaskSlots, 1
+17:22:13.097 [main] INFO org.apache.flink.configuration.GlobalConfiguration - Loading configuration property: parallelism.default, 1
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.metrics2.lib.MutableMetricsFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+17:22:13.479 [main] INFO org.apache.flink.runtime.security.modules.HadoopModule - Hadoop user set to dev (auth:SIMPLE)
+----init yarn success ----
+17:22:14.022 [main] WARN org.apache.flink.yarn.AbstractYarnClusterDescriptor - Neither the HADOOP_CONF_DIR nor the YARN_CONF_DIR environment variable is set. The Flink YARN Client needs one of these to be set to properly load the Hadoop configuration for accessing YARN.
+17:22:14.034 [main] WARN org.apache.flink.yarn.AbstractYarnClusterDescriptor - The specified queue 'default' does not exist. Available queues: root.default, root.users, root.users.jghss, root.users.dev, 
+17:22:14.059 [main] WARN org.apache.flink.yarn.AbstractYarnClusterDescriptor - The JobManager or TaskManager memory is below the smallest possible YARN Container size. The value of 'yarn.scheduler.minimum-allocation-mb' is '1024'. Please increase the memory size.YARN will allocate the smaller containers but the scheduler will account for the minimum-allocation-mb, maybe not all instances you requested will start.
+17:22:14.063 [main] INFO org.apache.flink.yarn.AbstractYarnClusterDescriptor - Cluster specification: ClusterSpecification{masterMemoryMB=1024, taskManagerMemoryMB=1024, numberTaskManagers=1, slotsPerTaskManager=1}
+17:22:14.428 [main] WARN org.apache.flink.yarn.AbstractYarnClusterDescriptor - The configuration directory ('/var/csg/zrq/flink-1.8.1/conf') contains both LOG4J and Logback configuration files. Please delete or rename one of them.
+17:22:16.127 [main] INFO org.apache.flink.yarn.AbstractYarnClusterDescriptor - Submitting application master application_1588675694872_41168
+17:22:16.150 [main] INFO org.apache.flink.yarn.AbstractYarnClusterDescriptor - Waiting for the cluster to be allocated
+17:22:16.151 [main] INFO org.apache.flink.yarn.AbstractYarnClusterDescriptor - Deploying cluster, current state ACCEPTED
+17:22:21.679 [main] INFO org.apache.flink.yarn.AbstractYarnClusterDescriptor - YARN application has been deployed successfully.
+17:22:22.171 [main] INFO org.apache.flink.runtime.rest.RestClient - Rest client endpoint started.
+17:22:22.172 [main] INFO com.dtstack.flinkx.launcher.perjob.PerJobSubmitter - deploy per_job with appId: application_1588675694872_41168}, jobId: 9d933354437d6c084e852f65b6ddd724
+2020-06-10 17:22:22,275 flinkx.py[line:202] DEBUG - yarn_application_id:application_1588675694872_41168
+2020-06-10 17:22:22,777 flinkx.py[line:207] DEBUG - check yarn state:RUNNING
+2020-06-10 17:22:38,197 flinkx.py[line:207] DEBUG - check yarn state:RUNNING
+2020-06-10 17:22:53,632 flinkx.py[line:207] DEBUG - check yarn state:RUNNING
+2020-06-10 17:23:09,150 flinkx.py[line:207] DEBUG - check yarn state:RUNNING
+2020-06-10 17:23:24,626 flinkx.py[line:207] DEBUG - check yarn state:FINISHED
+2020-06-10 17:23:24,627 flinkx.py[line:214] DEBUG - ##################     impala  info     ############################
+2020-06-10 17:23:24,627 ImpalaUtil.py[line:15] DEBUG - impala-shell -i 10.92.172.36:21000 -B -q 'select count(1) from csg_ods_09_rz.tb_cf_button'
+2020-06-10 17:30:18,091 flinkx.py[line:26] WARNING - not json file,skip:/var/csg/zrq/flinkx-batch/json/info.log
+2020-06-10 17:30:18,092 flinkx.py[line:50] DEBUG - json file:/var/csg/zrq/flinkx-batch/json/rp_sz.tb_cf_button_09_rz.json
+2020-06-10 17:30:18,093 __init__.py[line:412] INFO - GETFILESTATUS /dataLake/csg/ods/initdata2/09/rz/TB_CF_BUTTON user.name=dev 10.92.172.50:9870
+2020-06-10 17:30:18,100 __init__.py[line:412] INFO - GETFILESTATUS /dataLake/csg/ods/initdata2/09/rz/TB_CF_BUTTON user.name=dev 10.92.172.50:9870
+2020-06-10 17:30:18,105 flinkx.py[line:136] DEBUG - [check hdfs path exist: True]
+2020-06-10 17:30:18,105 flinkx.py[line:139] DEBUG - ##################     mysql  info    ############################
+2020-06-10 17:30:18,105 MysqlUtil.py[line:51] DEBUG - SELECT `table_id`, `company_code`, `domain`, `table_schema`, `table_name`, `rows` FROM  src_table_extra_info  WHERE company_code='09' AND domain ='rz' AND table_schema='rp_sz' AND table_name='tb_cf_button'
+2020-06-10 17:30:18,108 flinkx.py[line:147] DEBUG - mysql record:(299642086943232000, '09', 'rz', 'rp_sz', 'tb_cf_button', 9)
+2020-06-10 17:31:12,129 flinkx.py[line:26] WARNING - not json file,skip:/var/csg/zrq/flinkx-batch/json/info.log
+2020-06-10 17:31:12,130 flinkx.py[line:50] DEBUG - json file:/var/csg/zrq/flinkx-batch/json/rp_sz.tb_cf_button_09_rz.json
+2020-06-10 17:31:12,131 __init__.py[line:412] INFO - GETFILESTATUS /dataLake/csg/ods/initdata2/09/rz/TB_CF_BUTTON user.name=dev 10.92.172.50:9870
+2020-06-10 17:31:12,136 __init__.py[line:412] INFO - GETFILESTATUS /dataLake/csg/ods/initdata2/09/rz/TB_CF_BUTTON user.name=dev 10.92.172.50:9870
+2020-06-10 17:31:12,143 flinkx.py[line:136] DEBUG - [check hdfs path exist: True]
+2020-06-10 17:31:12,143 flinkx.py[line:139] DEBUG - ##################     mysql  info    ############################
+2020-06-10 17:31:12,143 MysqlUtil.py[line:51] DEBUG - SELECT `table_id`, `company_code`, `domain`, `table_schema`, `table_name`, `rows` FROM  src_table_extra_info  WHERE company_code='09' AND domain ='rz' AND table_schema='rp_sz' AND table_name='tb_cf_button'
+2020-06-10 17:31:12,149 flinkx.py[line:147] DEBUG - mysql record:(299642086943232000, '09', 'rz', 'rp_sz', 'tb_cf_button', 9)
+2020-06-10 17:31:12,149 MysqlUtil.py[line:51] DEBUG - SELECT cdh6_impala_ddl FROM des_table_info t1 JOIN des_table_extra_info t2 ON  t1.table_id=t2.table_id WHERE company_code='09' AND domain='rz' AND table_schema='rp_sz' AND table_name='tb_cf_button'
+2020-06-10 17:31:26,948 flinkx.py[line:158] INFO - create table if not exists csg_ods_09_rz.tb_cf_button ( c_oid decimal(38,16),c_panelid decimal(38,16),c_name string,c_type string,c_relatedpanelid decimal(38,16),c_link string,c_click string,c_showorder decimal(38,16) ,primary key(c_oid))
+stored as kudu;
+2020-06-10 17:31:26,948 ImpalaUtil.py[line:15] DEBUG - impala-shell -i 10.92.172.36:21000 -B -q 'create table if not exists csg_ods_09_rz.tb_cf_button ( c_oid decimal(38,16),c_panelid decimal(38,16),c_name string,c_type string,c_relatedpanelid decimal(38,16),c_link string,c_click string,c_showorder decimal(38,16) ,primary key(c_oid))
+stored as kudu;'

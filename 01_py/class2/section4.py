@@ -166,7 +166,7 @@ class Person(object):
 
 p1 = Person('Bob', 90)
 print (p1.get_grade)
-print (p1.get_grade()())
+print (p1.get_grade())
 
 
 
