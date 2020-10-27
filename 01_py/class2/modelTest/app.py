@@ -6,6 +6,6 @@ sys.path.append(".//pyutil//")
 #import dd
 #dd.pp()
 
-from pyutipj import u_hello
+from pyutilpj import u_hello
 if __name__ == '__main__':
     u_hello.pp()
