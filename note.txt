@@ -1,0 +1,100 @@
+
+
+
+
+升级pip
+python -m pip install --upgrade pip
+
+
+
+
+
+
+=======================Tuple=======================
+
+Tuple 只读列表/不可更改
+
+#创建只有一个元素的tuple，需要用逗号结尾消除歧义
+Tuple 是不可变 list。 一旦创建了一个 tuple 就不能以任何方式改变它。
+
+Tuple 与 list 的相同之处
+定义 tuple 与定义 list 的方式相同, 除了整个元素集是用小括号包围的而不是方括号。
+Tuple 的元素与 list 一样按定义的次序进行排序。 Tuples 的索引与 list 一样从 0 开始, 所以一个非空 tuple 的第一个元素总是 t[0]。
+负数索引与 list 一样从 tuple 的尾部开始计数。
+与 list 一样分片 (slice) 也可以使用。注意当分割一个 list 时, 会得到一个新的 list ；当分割一个 tuple 时, 会得到一个新的 tuple。
+
+Tuple 不存在的方法
+您不能向 tuple 增加元素。Tuple 没有 append 或 extend 方法。
+您不能从 tuple 删除元素。Tuple 没有 remove 或 pop 方法。
+然而, 您可以使用 in 来查看一个元素是否存在于 tuple 中。
+
+用 Tuple 的好处
+Tuple 比 list 操作速度快。如果您定义了一个值的常量集，并且唯一要用它做的是不断地遍历它，请使用 tuple 代替 list。
+如果对不需要修改的数据进行 “写保护”，可以使代码更安全。使用 tuple 而不是 list 如同拥有一个隐含的 assert 语句，说明这一数据是常量。如果必须要改变这些值，则需要执行 tuple 到 list 的转换。
+
+Tuple 与 list 的转换
+Tuple 可以转换成 list，反之亦然。内置的 tuple 函数接收一个 list，并返回一个有着相同元素的 tuple。而 list 函数接收一个 tuple 返回一个 list。从效果上看，tuple 冻结一个 list，而 list 解冻一个 tuple。
+
+Tuple 的其他应用
+一次赋多值
+>>> v = ('a', 'b', 'e')
+>>> (x, y, z) = v
+解释：v 是一个三元素的 tuple,
+
+
+
+
+=======================字典=======================
+
+字典(dictionary)是除列表以外python之中最灵活的内置数据结构类型。列表是有序的对象结合，字典是[无序]的对象集合
+
+Python字典包含了以下内置函数：
+1、cmp(dict1, dict2)：比较两个字典元素。
+2、len(dict)：计算字典元素个数，即键的总数。
+3、str(dict)：输出字典可打印的字符串表示。
+4、type(variable)：返回输入的变量类型，如果变量是字典就返回字典类型。
+
+Python字典包含了以下内置方法：
+1、radiansdict.clear()：删除字典内所有元素
+2、radiansdict.copy()：返回一个字典的浅复制
+3、radiansdict.fromkeys()：创建一个新字典，以序列seq中元素做字典的键，val为字典所有键对应的初始值
+4、radiansdict.get(key, default=None)：返回指定键的值，如果值不在字典中返回default值
+5、radiansdict.has_key(key)：如果键在字典dict里返回true，否则返回false
+6、radiansdict.items()：以列表返回可遍历的(键, 值) 元组数组
+7、radiansdict.keys()：以列表返回一个字典所有的键
+8、radiansdict.setdefault(key, default=None)：和get()类似, 但如果键不已经存在于字典中，将会添加键并将值设为default
+9、radiansdict.update(dict2)：把字典dict2的键/值对更新到dict里
+10、radiansdict.values()：以列表返回字典中的所有值
+
+
+
+函数 参数
+
+# VarArgs参数
+# 正常参数  加了星号（*）的变量名会存放所有未命名的变量参数       两个*指明关键字
+
+def print_paras(fpara, *nums, **words):
+    print("fpara: " + str(fpara))
+    print("nums: " + str(nums))
+    print("words: " + str(words))
+
+
+print_paras("hello", 1, 3, 5, 7, word="python", anohter_word="java")
+
+
+
+直接运行程序
+
+python test.py
+
+
+
+
+
+
+
+
+
+
+
+
