@@ -2,7 +2,6 @@
 import datetime
 
 from dict import MysqlMetaHandler
-from dict.AbstractMetaHandler import SrcTableDict
 from util import MysqlUtil, MysqlPoolUtil
 from util.IdWorker import IdWorker
 

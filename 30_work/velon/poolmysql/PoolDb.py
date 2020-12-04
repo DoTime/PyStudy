@@ -2,7 +2,7 @@ import time
 import pymysql
 import threading
 from DBUtils.PooledDB import PooledDB, SharedDBConnection
-
+# 数据库连接池
 POOL = PooledDB(
     creator=pymysql,  # 使用链接数据库的模块
     maxconnections=6,  # 连接池允许的最大连接数，0和None表示不限制连接数
