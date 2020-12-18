@@ -1,0 +1,173 @@
+
+
+=================run ======================
+
+/data1/initdate/flinkx-batch-172/app
+
+/data1/initdate/flinkx-batch-172/venv/bin/python /data1/initdate/flinkx-batch-172/app/dictlauncher.py
+
+
+
+
+scp -r /data1/csg/lyf/flink/velonApp cfsswj@10.92.208.68:/data1/initdate/flinkx-batch-172/app
+
+
+scp -r /data1/csg/lyf/src_table_dict cfsswj@10.92.208.68:/data1/ironman/flink/
+
+ssh cfsswj@
+2038!Cfss_68$Rk#Csf
+fsC#kR$86_ssfC!8302
+
+
+
+
+=================mysql ======================
+
+----------查询待处理表概况---------------
+
+SELECT
+	s.table_id,
+	s.company_code,
+	s.domain,
+	s.table_schema,
+	s.table_name,
+	s.db_type,
+	d.`table_name` AS table_name_des
+FROM
+	src_table_extra_info s
+	JOIN des_table_info d ON s.`table_id` = d.`table_id`
+WHERE s.db_type = 'mysql'
+ORDER BY
+	s.company_code,
+	s.domain,
+	s.table_name
+
+
+-------查询每个domain下的table数量----------
+SELECT
+	a.company_code,
+	a.domain,
+	COUNT( table_name )
+FROM
+	(
+	SELECT
+		s.table_id,
+		s.company_code,
+		s.domain,
+		s.table_schema,
+		s.table_name,
+		s.db_type,
+		d.`table_name` AS table_name_des
+	FROM
+		src_table_extra_info s
+		JOIN des_table_info d ON s.`table_id` = d.`table_id`
+	WHERE
+		s.db_type = 'mysql'
+	ORDER BY
+		s.company_code,
+		s.domain,
+		s.table_name
+	) a
+GROUP BY
+	a.company_code,
+	a.domain
+
+>>>
+02	zc	476
+18	dljy	309
+21	xxyw	41
+38	ds	141
+38	sl	130
+
+
+SELECT COUNT( DISTINCT table_name )  FROM `src_table_dict_test_02_zc`
+
+
+查询表字段数量
+SELECT *  FROM `src_table_dict_test_21_xxyw` WHERE table_name = 'sys_organization' ORDER BY  column_position;
+id	Y	bigint
+parent_id	N	bigint
+province_id	N	bigint
+org_type	N	int
+org_nature	N	int
+org_sort	Y	int
+org_name	N	varchar
+org_full_name	N	varchar
+org_short_name	N	varchar
+plate_id	N	bigint
+owner_id	N	bigint
+create_user	N	bigint
+create_dept	N	bigint
+create_time	N	datetime
+update_user	N	bigint
+update_time	N	datetime
+status	N	int
+is_deleted	N	int
+
+
+
+
+--------------------------------
+源端信息:
+mysql -ucollect -pZx_yunwei827 -h10.10.13.204 -P3308
+use iim;
+select * from sys_organization  limit 1;
+
+
+show create table sys_organization;
+>>>
+
+                                                                                                                                                              |
+| sys_organization | CREATE TABLE `sys_organization` (
+  `id` bigint(20) NOT NULL COMMENT '主键',
+  `parent_id` bigint(20) DEFAULT NULL COMMENT '父id',
+  `province_id` bigint(20) DEFAULT NULL COMMENT '省份id',
+  `org_type` int(11) DEFAULT NULL COMMENT '公司类型',
+  `org_nature` int(11) DEFAULT '1' COMMENT '公司性质',
+  `org_sort` int(11) DEFAULT NULL COMMENT '排序',
+  `org_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '公司名称',
+  `org_full_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `org_short_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '公司简称',
+  `plate_id` bigint(20) DEFAULT NULL COMMENT '板块id',
+  `owner_id` bigint(20) DEFAULT NULL COMMENT '主业单位id',
+  `create_user` bigint(20) DEFAULT NULL COMMENT '创建人',
+  `create_dept` bigint(20) DEFAULT NULL COMMENT '创建人部门',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_user` bigint(20) DEFAULT NULL COMMENT '更新人',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `status` int(11) DEFAULT '1' COMMENT '状态',
+  `is_deleted` int(11) DEFAULT '0' COMMENT '是否已删除',
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `IDX_ORG_SORT` (`org_sort`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 |
+
+
+
+-----------------源端查询 表元数据信息---------------------
+SELECT
+	a.table_schema,
+	a.table_name,
+	NULL AS table_name_zh,
+	a.ordinal_position,
+	a.column_name,
+IF
+	( LENGTH( a.COLUMN_KEY )> 0, 'Y', 'N' ) AS pk,
+	a.data_type,
+	a.character_maximum_length,
+	a.numeric_precision,
+	a.numeric_scale,
+	a.column_default,
+	a.is_nullable,
+	b.table_comment,
+	a.column_comment,
+	NULL AS remark
+FROM
+	information_schema.COLUMNS a
+	INNER JOIN information_schema.TABLES b ON a.table_schema = b.table_schema
+	AND a.TABLE_NAME = b.TABLE_NAME
+WHERE
+	a.table_schema = 'iim'
+	AND a.table_name = 'sys_organization';
+
+
+
